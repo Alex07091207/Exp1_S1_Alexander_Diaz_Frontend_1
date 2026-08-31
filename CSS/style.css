@@ -1,70 +1,258 @@
-h1{
-    color: black;
-    font-family: Arial, Helvetica, sans-serif, sans-serif;
-    padding: 20px ;
-    border: 4px solid black;
-    background-color: white;
-    border-radius: 10px;
-    margin: 10px;
+/* =========================================
+1. RESET BÁSICO Y TIPOGRAFÍA
+   ========================================= */
+* {
     box-sizing: border-box;
-}
-
-a{
-    color: black;
-}
-
-ul{
-    list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f8fafc; 
+    color: #1e293b; 
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* =========================================
+   2. HEADER Y NAVEGACIÓN (FLEXBOX)
+   ========================================= */
+header {
+    background-color: #ffffff;
+    padding: 20px 40px;
+    border-bottom: 4px solid #2563eb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Espacio entre título, buscador y texto */
+    text-align: center;
+}
+
+header h1 {
+    color: #2563eb;
+    font-size: 2.5rem;
+}
+
+/* Formulario de búsqueda */
+header div span form {
+    display: flex;
+    justify-content: center;
+}
+
+header input[type="text"] {
+    padding: 10px 15px;
+    border: 2px solid #cbd5e1;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 350px;
+    transition: border-color 0.3s;
+}
+
+/* Selector de estado */
+header input[type="text"]:focus {
+    border-color: #2563eb;
+    outline: none;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Separación horizontal entre links */
+    padding-top: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #1e293b;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+/* Selector :hover */
+nav ul li a:hover {
+    color: #2563eb;
+    text-decoration: underline;
+}
+
+/* =========================================
+   3. SECCIÓN DE PRODUCTOS (CSS GRID)
+   ========================================= */
+main {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centrar el contenido principal */
+}
+
+main section > h2, 
+main section > p {
+    text-align: center;
+    margin-bottom: 15px;
 }
 
 
-body{
-    background-color: grey;
+/* Contenedor Grid */
+main section ul {
+    display: grid;
+    grid-template-columns: repeat(3,1fr); /* 3 columnas iguales */
+    gap: 30px; /* Espacio entre tarjetas */
+    list-style: none;
+    margin-top: 30px;
 }
 
-header{
-    background-color: rgba(9, 9, 184, 0.944);
-    color: white;
+/* Tarjetas de producto */
+main section ul li {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
     padding: 20px;
     text-align: center;
-    border: 4px solid black;
-    border-radius: 10px;    
-    box-sizing: border-box;
-
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.navegador{
-    background-color: white;
-    color:black;
-    padding: 20px;
+/* Selector :nth-child (aplica un color de fondo distinto a tarjetas pares) */
+main section ul li:nth-child(even) {
+    background-color: #f1f5f9;
+}
+
+/* Selector :hover para las tarjetas */
+main section ul li:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* Adaptar imágenes al Grid */
+main section ul li img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* =========================================
+   4. FOOTER (FLEXBOX)
+   ========================================= */
+footer {
+    background-color: #0f172a;
+    color: #cbd5e1;
+    padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos bajen si no hay espacio */
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+#titulo-footer {
+    color: #ffffff;
+    width: 100%;
     text-align: center;
-    margin: 30px;
+    margin-bottom: 20px;
 }
 
-#titulo-footer{
-    color: blue;
-    font-family: Arial, Helvetica, sans-serif;
+footer p {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espacio entre el icono SVG y el texto */
+    font-size: 0.9rem;
 }
 
-p{
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
+footer svg {
+    stroke: #94a3b8; /* Darle color gris a los íconos */
 }
 
-p.description{
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
+/* =========================================
+    5. MEDIA QUERIES (RESPONSIVE DESIGN)
+   ========================================= */
+
+/* Para Tablets y pantallas medianas */
+@media (max-width: 900px) {
+    main section ul {
+        grid-template-columns: repeat(2, 1fr); /* Pasa a 2 columnas */
+    }
 }
 
-h2{
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
+/* Para Dispositivos Móviles */
+@media (max-width: 600px) {
+    header {
+        padding: 15px;
+    }
+    
+    nav ul {
+        flex-direction: column; /* Apila los links de navegación */
+        gap: 15px;
+    }
+
+    main section ul {
+        grid-template-columns: 1fr; /* Pasa a 1 sola columna */
+    }
+
+    footer {
+        flex-direction: column; /* Apila la información de contacto */
+        text-align: center;
+    }
 }
 
-h3{
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
+/* =========================================
+6. ESTILOS (PÁGINA DE CONTACTO)
+   ========================================= */
+
+.contenedor-contacto {
+    max-width: 700px;
+}
+
+.contenedor-contacto h2 {
+    color: #2563eb;
+    margin-bottom: 10px;
+}
+
+/* Usamos Flexbox para apilar las tarjetas con una separación uniforme */
+.tarjetas-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+/* Estilo para cada tarjeta individual */
+.tarjeta {
+    display: flex;
+    align-items: center; /* Alinea el ícono y el texto verticalmente */
+    gap: 20px; /* Separación entre el ícono y el texto */
+    background-color: #ffffff;
+    padding: 20px 25px;
+    border: 1px solid #e2e8f0;
+    border-radius: 13px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease; /* Transición suave para el efecto hover */
+}
+
+/* Selector :hover - Mueve la tarjeta hacia la derecha al pasar el ratón */
+.tarjeta:hover {
+    transform: translateX(10px); 
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    border-color: #2563eb; /* Borde azul al interactuar */
+}
+
+/* Le damos el color azul de tu marca a los íconos SVG y los hacemos un poco más grandes */
+.tarjeta svg {
+    stroke: #2563eb; 
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+}
+
+/* =========================================
+7. ESTILOS DE PRECIO (PRODUCTOS)
+   ========================================= */
+.precio {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #2563eb; /* El mismo azul de tu marca */
+    margin-top: 10px;
 }

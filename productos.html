@@ -1,17 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Productos - Tecnomerce</title>
+    <!-- Importante: enlazamos el MISMO archivo CSS -->
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
     <header>
-        <h1>Productos</h1>
+        <h1>Tecnomerce</h1>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
         <h2>Lista de Productos</h2>
-        <p>Aquí puedes encontrar todos nuestros productos disponibles.</p>
+        <p>Aquí puedes encontrar todos nuestros productos disponibles al mejor precio.</p>
+        
+        <section>
+            <ul>
+                <!-- Producto 1: Audífonos Lenovo -->
+                <li>
+                    <h3>Audífonos Lenovo</h3>
+                    <!-- IMPORTANTE: Cambia "lenovo.jpg" por el nombre real de tu imagen -->
+                    <img src="./Imagenes/audifonos-lenovo.jpg" alt="Audífonos Inalámbricos Lenovo">
+                    <p>Audífonos inalámbricos con estuche de carga, ideales para música y gaming.</p>
+                    <p class="precio">$24.990</p>
+                </li>
+
+                <!-- Producto 2: Cámara Olympus -->
+                <li>
+                    <h3>Cámara Olympus E-330</h3>
+                    <!-- IMPORTANTE: Cambia "olympus.jpg" por el nombre real de tu imagen -->
+                    <img src="./Imagenes/camara.jpg" alt="Cámara Olympus E-330">
+                    <p>Cámara réflex digital de alta calidad para capturar tus mejores momentos.</p>
+                    <p class="precio">$189.990</p>
+                </li>
+
+                <!-- Producto 3: God of War -->
+                <li>
+                    <h3>God of War</h3>
+                    <!-- IMPORTANTE: Cambia "godofwar.jpg" por el nombre real de tu imagen -->
+                    <img src="./Imagenes/god-of-war.jpg" alt="Juego God of War">
+                    <p>Acompaña a Kratos y Atreus en esta épica aventura nórdica llena de acción.</p>
+                    <p class="precio">$39.990</p>
+                </li>
+
+                <!-- Producto 4: PlayStation 5 -->
+                <li>
+                    <h3>PlayStation 5</h3>
+                    <!-- IMPORTANTE: Cambia "ps5.jpg" por el nombre real de tu imagen -->
+                    <img src="./Imagenes/ps5.webp" alt="Consola PlayStation 5">
+                    <p>Consola de nueva generación con tiempos de carga ultra rápidos y gráficos 4K.</p>
+                    <p class="precio">$499.990</p>
+                </li>
+            </ul>
+        </section>
     </main>
 </body>
 </html>
